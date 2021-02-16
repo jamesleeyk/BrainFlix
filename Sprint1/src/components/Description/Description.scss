@@ -1,0 +1,69 @@
+@import '../../partials/typography';
+@import '../../partials/variables';
+@import '../../partials/mixins';
+
+.description {
+  padding: 1.35rem;
+  @include tablet {
+    padding-top: 2.35rem;
+  }
+  @include laptop {
+    padding-top: 3rem;
+  }
+  &__intro {
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid $third-color;
+  }
+  &__title {
+    @include tablet {
+      font-size: 2.5rem;
+    }
+  }
+  &__info-div {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__authorInfo {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    @include tablet {
+      margin-top: 1.25rem;
+    }
+  }
+  &__author {
+    font-weight: 500;
+  }
+  &__date {
+    margin-left: 0.85rem;
+    color: $secondary-color;
+    font-size: 0.95rem;
+  }
+  &__viewsLikes {
+    display: flex;
+    margin-top: 1.5rem;
+  }
+  &__views,
+  &__likes {
+    display: flex;
+    padding-right: 1.5rem;
+    font-size: 0.95rem;
+  }
+  &__views-text,
+  &__likes-text {
+    padding-left: 0.35rem;
+  }
+  &__text {
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    @include tablet {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      width: 35rem;
+    }
+  }
+}

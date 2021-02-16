@@ -1,0 +1,59 @@
+@import '../../partials/typography';
+@import '../../partials/variables';
+@import '../../partials/mixins';
+
+.videoList {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  padding-bottom: 0;
+  &__header {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $secondary-color;
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+  &__list {
+    list-style: none;
+    padding-top: 1.5rem;
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &__item {
+    display: flex;
+    margin: 1rem 0;
+    @include tablet {
+      margin-top: 1.5rem;
+    }
+  }
+  &__img {
+    object-fit: cover;
+    width: 8rem;
+    height: 4.25rem;
+    border-radius: 5.5px;
+    @include tablet {
+      height: 4.5rem;
+    }
+  }
+  &__text-div {
+    padding-left: 1rem;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    @include tablet {
+      font-size: 1.15rem;
+      width: 14rem;
+    }
+  }
+  &__author {
+    padding-top: 0.55rem;
+    font-size: 0.9rem;
+    font-weight: normal;
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+}

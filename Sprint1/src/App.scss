@@ -1,0 +1,24 @@
+@import './partials/typography';
+@import './partials/mixins';
+@import './partials/variables';
+
+body {
+  font-family: 'Avenir Next';
+}
+
+.section {
+  @include laptop {
+    display: flex;
+    padding: 0 8rem;
+    align-items: center;
+  }
+}
+
+.section-div {
+  @include laptop {
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    border-right: 2px solid $third-color;
+  }
+}

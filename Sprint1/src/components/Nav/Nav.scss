@@ -1,0 +1,92 @@
+@import '../../partials/typography';
+@import '../../partials/variables';
+@import '../../partials/mixins';
+
+.nav {
+  padding-top: 1rem;
+  &__logo {
+    @include tablet {
+      padding-left: 1.35rem;
+    }
+    @include laptop {
+      padding-left: 13.5rem;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  &__search {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.35rem;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+    background-color: #fafafa;
+    width: 18rem;
+    @include tablet {
+      width: 16rem;
+      height: 3rem;
+      margin: 0;
+    }
+    @include laptop {
+      height: 3.25rem;
+    }
+  }
+  &__button-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.5rem;
+    @include tablet {
+      padding: 0 1rem;
+      justify-content: center;
+    }
+    @include laptop {
+      padding-right: 11rem;
+    }
+  }
+  &__button {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 0.9rem 5rem;
+    border-radius: 5px;
+    border: none;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    @include tablet {
+      padding: 0.85rem 2rem;
+    }
+    @include laptop {
+      padding: 1rem 2rem;
+    }
+  }
+  &__img-div {
+    padding-right: 0.25rem;
+    @include tablet {
+      padding-left: 1.2rem;
+    }
+  }
+  &__img {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+  }
+}
