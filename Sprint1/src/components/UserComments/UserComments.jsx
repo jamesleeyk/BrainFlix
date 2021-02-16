@@ -12,7 +12,13 @@ function UserComments(props) {
         </div>
         <div className="userComments__text-div">
           <div className="userComments__name-div">
-            <h4 className="userComments__author">{props.commentDetails.name}</h4>
+            <h4 className="userComments__author">
+              {
+                // props.videoDetails.find((video) => video.id === props.currentVideo)
+                //   .comments.name
+                props.commentDetails.name
+              }
+            </h4>
             <p className="userComments__date">
               {new Date(props.commentDetails.timestamp).toLocaleDateString()}
             </p>

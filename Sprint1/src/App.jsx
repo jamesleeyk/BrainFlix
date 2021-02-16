@@ -21,6 +21,13 @@ class App extends Component {
     };
   }
 
+  clickHandler = (id) => {
+    console.log('you clicked on a video!');
+    this.setState({
+      currentVideo: id,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -28,24 +35,46 @@ class App extends Component {
           <Nav />
         </header>
         <main className="main">
-          <VideoPlayer videoDetails={this.state.videoDetails} />
+          <VideoPlayer
+            videoDetails={this.state.videoDetails}
+            currentVideo={this.state.currentVideo}
+          />
           <section className="section">
             <div className="section-div">
-              <Description videoDetails={this.state.videoDetails} />
-              <Comments videoDetails={this.state.videoDetails} />
-              <UserComments
-                commentDetails={this.state.videoDetails[0].comments[0]}
+              <Description
+                videoDetails={this.state.videoDetails}
+                currentVideo={this.state.currentVideo}
+              />
+              <Comments
+                videoDetails={this.state.videoDetails}
+                currentVideo={this.state.currentVideo}
               />
               <UserComments
-                commentDetails={this.state.videoDetails[0].comments[1]}
+                commentDetails={
+                  this.state.videoDetails.find(
+                    (video) => video.id === this.state.currentVideo
+                  ).comments[0]
+                }
               />
               <UserComments
-                commentDetails={this.state.videoDetails[0].comments[2]}
+                commentDetails={
+                  this.state.videoDetails.find(
+                    (video) => video.id === this.state.currentVideo
+                  ).comments[1]
+                }
+              />
+              <UserComments
+                commentDetails={
+                  this.state.videoDetails.find(
+                    (video) => video.id === this.state.currentVideo
+                  ).comments[2]
+                }
               />
             </div>
             <VideoList
               videos={this.state.videos}
               currentVideo={this.state.currentVideo}
+              clickHandler={this.clickHandler}
             />
           </section>
         </main>

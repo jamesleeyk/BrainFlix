@@ -8,7 +8,11 @@ function Comments(props) {
     <section className="comments">
       <div className="comments__border">
         <div className="comments__count">
-          {props.videoDetails[0].comments.length} Comments
+          {
+            props.videoDetails.find((video) => video.id === props.currentVideo)
+              .comments.length
+          }{' '}
+          Comments
         </div>
         <div className="comments__interface">
           <form action="" className="comments__form">

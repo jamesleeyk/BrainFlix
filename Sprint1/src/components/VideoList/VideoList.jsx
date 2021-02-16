@@ -10,7 +10,10 @@ function VideoList(props) {
           .filter((video) => video.id !== props.currentVideo)
           .map((video) => (
             <li className="videoList__item" key={video.id}>
-              <div className="videoList__img-div">
+              <div
+                onClick={() => props.clickHandler(video.id)}
+                className="videoList__img-div"
+              >
                 <img src={video.image} alt="" className="videoList__img" />
               </div>
               <div className="videoList__text-div">

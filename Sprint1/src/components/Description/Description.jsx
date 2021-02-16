@@ -9,31 +9,54 @@ function Description(props) {
   return (
     <section className="description">
       <div className="description__intro">
-        <h2 className="description__title">{props.videoDetails[0].title}</h2>
+        <h2 className="description__title">
+          {props.videoDetails.find((video) => video.id === props.currentVideo).title}
+        </h2>
         <div className="description__info-div">
           <div className="description__authorInfo">
-            <p className="description__author">By {props.videoDetails[0].channel}</p>
+            <p className="description__author">
+              By{' '}
+              {
+                props.videoDetails.find((video) => video.id === props.currentVideo)
+                  .channel
+              }
+            </p>
             <p className="description__date">
-              {new Date(props.videoDetails[0].timestamp).toLocaleDateString()}
+              {new Date(
+                props.videoDetails.find(
+                  (video) => video.id === props.currentVideo
+                ).timestamp
+              ).toLocaleDateString()}
             </p>
           </div>
           <div className="description__viewsLikes">
             <div className="description__views">
               <img src={viewsIcon} alt="" className="description__views-img" />
               <p className="description__views-text">
-                {props.videoDetails[0].views}
+                {
+                  props.videoDetails.find((video) => video.id === props.currentVideo)
+                    .views
+                }
               </p>
             </div>
             <div className="description__likes">
               <img src={likesIcon} alt="" className="description__likes-img" />
               <p className="description__likes-text">
-                {props.videoDetails[0].likes}
+                {
+                  props.videoDetails.find((video) => video.id === props.currentVideo)
+                    .likes
+                }
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="description__text">{props.videoDetails[0].description}</div>
+      <div className="description__text">
+        {
+          props.videoDetails.find((video) => video.id === props.currentVideo)
+            .description
+        }
+      </div>
     </section>
   );
 }
