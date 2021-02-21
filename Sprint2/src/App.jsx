@@ -49,27 +49,11 @@ class App extends Component {
                 videoDetails={this.state.videoDetails}
                 currentVideo={this.state.currentVideo}
               />
-              <UserComments
-                commentDetails={
-                  this.state.videoDetails.find(
-                    (video) => video.id === this.state.currentVideo
-                  ).comments[0]
-                }
-              />
-              <UserComments
-                commentDetails={
-                  this.state.videoDetails.find(
-                    (video) => video.id === this.state.currentVideo
-                  ).comments[1]
-                }
-              />
-              <UserComments
-                commentDetails={
-                  this.state.videoDetails.find(
-                    (video) => video.id === this.state.currentVideo
-                  ).comments[2]
-                }
-              />
+              {this.state.videoDetails
+                .filter((video) => video.id === this.state.currentVideo)[0]
+                .comments.map((comment) => (
+                  <UserComments commentDetails={comment} />
+                ))}
             </div>
             <VideoList
               videos={this.state.videos}
