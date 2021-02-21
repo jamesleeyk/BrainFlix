@@ -8,9 +8,7 @@ function VideoPlayer(props) {
         <video
           className="video__poster"
           controls
-          poster={
-            props.videoDetails.find((video) => video.id === props.currentVideo).image
-          }
+          poster={props.currentVideo.image}
         ></video>
       </section>
     </>
