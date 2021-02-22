@@ -3,11 +3,15 @@ import Nav from '../components/Nav/Nav';
 import UploadInterface from '../components/UploadInterface/UploadInterface';
 
 class Upload extends Component {
+  clickHandler = () => {
+    alert('Video successfully uploaded!');
+  };
+
   render() {
     return (
       <section className="upload">
         <Nav />
-        <UploadInterface />
+        <UploadInterface clickHandler={this.clickHandler} />
       </section>
     );
   }
