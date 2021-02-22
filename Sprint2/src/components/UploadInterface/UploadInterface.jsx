@@ -46,7 +46,6 @@ function UploadInterface(props) {
                 PUBLISH
               </button>
             </Link>
-
             <button className="upload__form-buttonCancel">CANCEL</button>
           </div>
         </form>
