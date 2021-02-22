@@ -10,17 +10,13 @@ import Comments from './components/Comments/Comments';
 import UserComments from './components/UserComments/UserComments';
 import VideoList from './components/VideoList/VideoList';
 
-// import video data to use in state object
-import videos from './assets/Data/videos.json';
-import videoDetails from './assets/Data/video-details.json';
-
 const apiURL = 'https://project-2-api.herokuapp.com';
 const apiKey = 'ef14ede8-5246-4f55-87eb-d1afd32f66f1';
 
 class App extends Component {
   state = {
-    videos: [],
     currentVideo: {},
+    videos: [],
   };
 
   componentDidMount() {
@@ -28,11 +24,18 @@ class App extends Component {
     this.getVideos();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { id } = this.props.match.params;
+    if (id !== undefined && prevState.currentVideo.id !== Number(id)) {
+      this.getMainData(id);
+    }
+  }
+
   getMainData = (id) => {
     axios
       .get(`${apiURL}/videos/${id}?api_key=${apiKey}`)
       .then((response) => {
-        this.setState({ currentVideo: response.data.data });
+        this.setState({ currentVideo: response.data });
       })
       .catch((err) => {
         console.log(err);
@@ -50,12 +53,6 @@ class App extends Component {
       });
   };
 
-  // clickHandler = (id) => {
-  //   this.setState({
-  //     currentVideo: id,
-  //   });
-  // };
-
   render() {
     return (
       <div className="App">
@@ -63,25 +60,32 @@ class App extends Component {
           <Nav />
         </header>
         <main className="main">
-          <VideoPlayer currentVideo={this.state.currentVideo} />
+          {this.state.currentVideo === '' ? (
+            ''
+          ) : (
+            <VideoPlayer currentVideo={this.state.currentVideo} />
+          )}
           <section className="section">
             <div className="section-div">
-              <Description
-                videos={this.state.videos}
-                currentVideo={this.state.currentVideo}
-              />
-              <Comments
-                videos={this.state.videos}
-                currentVideo={this.state.currentVideo}
-              />
-              {this.state.currentVideo.comments.map((comment) => (
-                <UserComments commentDetails={comment} />
-              ))}
+              {Object.keys(this.state.currentVideo).length === 0 ? (
+                ''
+              ) : (
+                <Description currentVideo={this.state.currentVideo} />
+              )}
+              {Object.keys(this.state.currentVideo).length === 0 ? (
+                ''
+              ) : (
+                <Comments currentVideo={this.state.currentVideo} />
+              )}
+              {Object.keys(this.state.currentVideo).length === 0
+                ? ''
+                : this.state.currentVideo.comments.map((comment) => (
+                    <UserComments commentDetails={comment} />
+                  ))}
             </div>
             <VideoList
               videos={this.state.videos}
               currentVideo={this.state.currentVideo}
-              clickHandler={this.clickHandler}
             />
           </section>
         </main>

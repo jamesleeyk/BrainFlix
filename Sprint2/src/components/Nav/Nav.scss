@@ -62,13 +62,16 @@
       padding-right: 11rem;
     }
   }
+  &__link {
+    text-decoration: none;
+  }
   &__button {
     background-color: $primary-color;
     color: #fff;
     padding: 0.9rem 5rem;
     border-radius: 5px;
     border: none;
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: center;
     @include tablet {
