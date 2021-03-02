@@ -5,8 +5,12 @@
 .upload {
   &__div {
     padding: 0.75rem 1rem;
+    @include tablet {
+      padding-top: 1.25rem;
+      padding-right: 1.35rem;
+    }
     @include laptop {
-      padding: 0 13.5rem;
+      padding: 1.25rem 13.5rem;
     }
   }
   &__mainDiv {
@@ -88,13 +92,19 @@
       flex-direction: column;
       padding-top: 1rem;
       @include tablet {
-        flex-direction: row;
-        justify-content: flex-end;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
         margin-top: 3rem;
         padding-top: 1.5rem;
         border-top: 1px solid $secondary-color;
         padding-bottom: 10rem;
       }
+    }
+    &-link {
+      text-decoration: none;
+      font-family: 'Avenir Next';
+      font-weight: 500;
+      color: white;
     }
     &-buttonPublish {
       margin-top: 1rem;

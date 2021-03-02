@@ -80,7 +80,7 @@ class App extends Component {
               {Object.keys(this.state.currentVideo).length === 0
                 ? ''
                 : this.state.currentVideo.comments.map((comment) => (
-                    <UserComments commentDetails={comment} />
+                    <UserComments key={comment.id} commentDetails={comment} />
                   ))}
             </div>
             <VideoList

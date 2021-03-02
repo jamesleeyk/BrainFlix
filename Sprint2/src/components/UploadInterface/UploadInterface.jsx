@@ -23,6 +23,7 @@ function UploadInterface(props) {
               type="text"
               className="upload__form-titleInput"
               placeholder="Add a title to your video"
+              required
             />
             <label htmlFor="description" className="upload__form-descriptionLabel">
               ADD A VIDEO DESCRIPTION
@@ -34,18 +35,19 @@ function UploadInterface(props) {
               cols="30"
               rows="10"
               className="upload__form-descriptionInput"
+              required
             ></textarea>
           </div>
           <div className="upload__form-button-div">
-            <Link to="{`/`}">
-              <button
-                onClick={props.clickHandler}
-                type="submit"
-                className="upload__form-buttonPublish"
-              >
+            <button
+              onClick={props.clickHandler}
+              type="submit"
+              className="upload__form-buttonPublish"
+            >
+              <Link className="upload__form-link" to="{`/`}">
                 PUBLISH
-              </button>
-            </Link>
+              </Link>
+            </button>
             <button className="upload__form-buttonCancel">CANCEL</button>
           </div>
         </form>

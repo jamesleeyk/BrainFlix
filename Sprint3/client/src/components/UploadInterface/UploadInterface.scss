@@ -1,0 +1,131 @@
+@import '../../partials/typography';
+@import '../../partials/variables';
+@import '../../partials/mixins';
+
+.upload {
+  &__div {
+    padding: 0.75rem 1rem;
+    @include tablet {
+      padding-top: 1.25rem;
+      padding-right: 1.35rem;
+    }
+    @include laptop {
+      padding: 1.25rem 13.5rem;
+    }
+  }
+  &__mainDiv {
+    @include laptop {
+      display: flex;
+    }
+  }
+
+  &__title {
+    padding-top: 1.5rem;
+    color: #323232;
+    border-top: 1.75px solid $third-color;
+    @include tablet {
+      font-size: 2rem;
+      padding: 2.25rem 0;
+      border-top: 1px solid $third-color;
+      border-bottom: 1.85px solid $third-color;
+    }
+  }
+  &__thumbnail-div {
+    padding-top: 1.5rem;
+    @include laptop {
+      padding-right: 2rem;
+    }
+  }
+  &__thumbnail-caption {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    color: $secondary-color;
+    @include tablet {
+      padding-top: 1rem;
+    }
+    @include laptop {
+      padding: 0;
+    }
+  }
+  &__thumbnail-img {
+    max-width: 100%;
+    border-radius: 7px;
+    @include tablet {
+      max-width: 50%;
+    }
+    @include laptop {
+      min-width: 100%;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    &-titleLabel,
+    &-descriptionLabel {
+      @extend .upload__thumbnail-caption;
+      padding-top: 2rem;
+    }
+    &-input-div {
+      display: flex;
+      flex-direction: column;
+      @include laptop {
+        width: 40rem;
+      }
+    }
+    &-titleInput {
+      height: 3rem;
+      border-radius: 5px;
+      border: 1px solid $secondary-color;
+      background-color: $fourth-color;
+      font-family: 'Avenir Next';
+      font-weight: 500;
+      font-size: 0.875rem;
+      padding: 1rem;
+    }
+    &-descriptionInput {
+      @extend .upload__form-titleInput;
+      height: 9rem;
+    }
+    &-button-div {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1rem;
+      @include tablet {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid $secondary-color;
+        padding-bottom: 10rem;
+      }
+    }
+    &-link {
+      text-decoration: none;
+      font-family: 'Avenir Next';
+      font-weight: 500;
+      color: white;
+    }
+    &-buttonPublish {
+      margin-top: 1rem;
+      padding: 0.8rem 0;
+      border: none;
+      background-color: $primary-color;
+      color: white;
+      border-radius: 4px;
+      &:disabled {
+        background-color: gray;
+      }
+      @include tablet {
+        padding: 1rem 0;
+        width: 9rem;
+      }
+    }
+    &-buttonCancel {
+      @extend .upload__form-buttonPublish;
+      background-color: white;
+      color: $primary-color;
+      font-weight: bold;
+    }
+  }
+}
